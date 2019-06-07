@@ -69,7 +69,7 @@ body
 .osWindow
 {
 	font-size:17px;
-	background:#2c3e50;
+	/* background:#2c3e50; */
 	border-radius: 5px;
 	overflow: hidden;
 }
@@ -97,19 +97,23 @@ body
 {
 	color:#2ecc71;
 }
+.windowTopUIbackground
+{
+	color:#7f8c8d;
+}
 .windowTopHidden
 {
 	color: rgba(46, 204, 113,0.0);
 }
 .osWindowHighlight
 {
-	box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 15px 15px rgba(0, 0, 0, 0.25);
 }
 #osNowPlaying
 {
 	position: absolute;
-	top:104px;
-	right:48px;
+	top:100px;
+	right:25px;
 	z-index: 10000;
 
 	animation-name:scaleIn;
@@ -120,6 +124,97 @@ body
 #nowPlayingVideo
 {
 	display: block;
+}
+#osFinder
+{
+	position: absolute;
+	bottom:100px;
+	left:25px;
+	z-index: 1000;
+
+	animation-name:scaleIn;
+	animation-duration:0.5s;
+	animation-delay: 0.75s;
+	animation-fill-mode: backwards;
+}
+.osFinderContent
+{
+	text-align: left;
+	font-size:13px;
+	background:#2c3e50;
+	background:rgba(44, 62, 80,0.7);
+	display: flex;
+	flex-direction: row;
+}
+.finderSidebar
+{
+	margin:20px;
+	margin-right:0;
+	padding-right:20px;
+	border-right:1px solid #ebf1f5;
+}
+.finderSidebar i
+{
+	width:22px;
+	margin-right:5px;
+	margin-bottom:5px;
+	text-align: center;
+}
+.finderSiderbarSeparator
+{
+	margin-top:15px;
+	margin-bottom:20px;
+}
+.sidebarColorRed
+{
+	color:#e74c3c;
+}
+.sidebarColorOrange
+{
+	color:#e67e22;
+}
+.sidebarColorYellow
+{
+	color:#f1c40f;
+}
+.sidebarColorGreen
+{
+	color:#2ecc71;
+}
+.sidebarColorBlue
+{
+	color:#3498db;
+}
+.sidebarColorPurple
+{
+	color:#9b59b6;
+}
+.finderFolderContents
+{
+	width:500px;
+	height:400px;
+	padding:20px;
+	display: flex;
+	justify-content: left;
+	flex-wrap: wrap;
+	align-items:baseline;
+}
+.wallpaperItem
+{
+	width: 100px;
+	text-align: center;
+	font-size:13px;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+.wallpaperFile
+{
+	border: 2px solid #ebf1f5;
+	margin-bottom:10px;
+}
+.wallpaperName
+{
+	width: 100px;
 }
 
 @keyframes fadeIn
