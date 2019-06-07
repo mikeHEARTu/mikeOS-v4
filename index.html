@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Live breakscreen for Twitch.tv/aznmike123">
+	<meta name="keywords" content="twitch, overlay">
+	<meta name="author" content="Michael Macasiano">
+	<title>Video games are awful</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<script>
+	function startTime() {
+		var today = new Date();
+		var h = today.getHours();
+		var m = today.getMinutes();
+		
+		var weekday = new Array(7);
+		weekday[0] =  "Sunday";
+		weekday[1] = "Monday";
+		weekday[2] = "Tuesday";
+		weekday[3] = "Wednesday";
+		weekday[4] = "Thursday";
+		weekday[5] = "Friday";
+		weekday[6] = "Saturday";
+
+		var d = weekday[today.getDay()];
+
+		var month = new Array(12);
+		month[0] = "January";
+		month[1] = "February";
+		month[2] = "March";
+		month[3] = "April";
+		month[4] = "May";
+		month[5] = "June";
+		month[6] = "July";
+		month[7] = "August";
+		month[8] = "September";
+		month[9] = "October";
+		month[10] = "November";
+		month[11] = "December";
+
+		var mn = month[today.getMonth()];
+
+		var dt = ordinal_suffix_of(today.getDate());
+
+		m = checkTime(m);
+		document.getElementById('timeDay').innerHTML = d;
+		document.getElementById('timeMonth').innerHTML = mn;
+		document.getElementById('timeDate').innerHTML = dt;
+
+		document.getElementById('timeHours').innerHTML = h;
+		document.getElementById('timeMinutes').innerHTML = m;
+
+		var t = setTimeout(startTime, 500);
+	}
+	function checkTime(i) {
+		if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+		return i;
+	}
+	function UTCplusOne(i) {
+		i++;
+		if (i > 23) {i = 0};
+		return i;
+	}
+	function ordinal_suffix_of(i) {
+		var j = i % 10,
+			k = i % 100;
+		if (j == 1 && k != 11) {
+			return i + "st";
+		}
+		if (j == 2 && k != 12) {
+			return i + "nd";
+		}
+		if (j == 3 && k != 13) {
+			return i + "rd";
+		}
+		return i + "th";
+	}
+</script>
+
+<body onload="startTime()">
+	<div id="streamCanvas">
+		<div id="topBar">
+			<div class="topBarLeft">
+				<i class="fas fa-pizza-slice topBarBlock"></i>
+				<div class="topBarBlock">mikeos</div>
+				<div class="topBarBlock">|</div>
+				<div class="topBarBlock">file</div>
+				<div class="topBarBlock">edit</div>
+				<div class="topBarBlock">view</div>
+				<div class="topBarBlock">window</div>
+				<div class="topBarBlock">help</div>
+			</div>
+
+			<div class="topBarRight">
+				<div class="topBarBlock">
+					<span id="timeDay"></span>,
+					<span id="timeMonth"></span>
+					<span id="timeDate"></span>
+				</div>
+				<i class="fas fa-wifi topBarBlock"></i>
+				<i class="fas fa-battery-three-quarters topBarBlock"></i>
+				<div class="topBarBlock">
+					<span id="timeHours"></span>
+					<span class="clockTicker">:</span>
+					<span id="timeMinutes"></span>
+				</div>
+				<i class="fas fa-bell topBarBlock"></i>
+			</div>
+		</div>
+
+		<div class="osWindow" id="osNowPlaying">
+			<div class="osWindowTop">
+ 				<i class="fas fa-bars windowTopBlock windowTopUI windowTopHidden"></i>
+				<div class="windowTopBlock">users/michael/videos/gameplay.mp4</div>
+				<div class="windowTopUI">
+					<i class="fas fa-stop-circle windowTopBlock windowTopBubbles"></i>
+					<i class="fas fa-arrow-alt-circle-down windowTopBlock windowTopBubbles"></i>
+					<i class="fas fa-times-circle windowTopBlock"></i>
+				</div>
+			</div>
+
+			<video autoplay muted loop width="1280" id="nowPlayingVideo">
+				<!-- <source src="img/steambirds-alliance-gameplay.mp4" type="video/mp4"> -->
+				<source src="img/builtee.webm" type="video/webm">
+			</video>
+		</div>
+	</div>
+</body>
+
+</html>
