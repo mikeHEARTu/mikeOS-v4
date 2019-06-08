@@ -289,7 +289,6 @@ body
 	left: 0;
 	overflow:hidden;
 	background: #2980b9;
-	background-image: linear-gradient(to bottom, #2980b9, #2980b9);
 	text-transform: none;
 	font-family: VT323;
 	font-size:2.5vw;
@@ -297,10 +296,6 @@ body
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
-	animation-name:offlineBackground;
-	animation-duration:6s;
-	animation-iteration-count: infinite;
 }
 .offlineContainer
 {
@@ -401,37 +396,6 @@ body
 	100%
 	{
 		transform: perspective(500px);
-	}
-}
-@keyframes offlineBackground
-{
-	0%
-	{
-		background-image: linear-gradient(to bottom, #2980b9, #2980b9);
-	}
-	48%
-	{
-		background-image: linear-gradient(to bottom, #2980b9, #2980b9);
-	}
-	49%
-	{
-		background-image: linear-gradient(to bottom, rgba(52, 152, 219,0.2), #2980b9, #2980b9, #2980b9, rgba(52, 152, 219,0.2));
-	}
-	50%
-	{
-		background-image: linear-gradient(to bottom, #2980b9, #2980b9);
-	}
-	51%
-	{
-		background-image: linear-gradient(to bottom, rgba(52, 152, 219,0.2), #2980b9, #2980b9, #2980b9, rgba(52, 152, 219,0.2));
-	}
-	52%
-	{
-		background-image: linear-gradient(to bottom, #2980b9, #2980b9);
-	}
-	100%
-	{
-		background-image: linear-gradient(to bottom, #2980b9, #2980b9);
 	}
 }
 @keyframes offlineText
